@@ -1,0 +1,4 @@
+dependencies {
+    compile("org.projectlombok:lombok:1.18.8")
+    compile("org.apache.commons:commons-lang3:3.9")
+}

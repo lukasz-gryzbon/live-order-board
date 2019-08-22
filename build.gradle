@@ -1,0 +1,20 @@
+group 'com.test'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+jar {
+    baseName = 'tech-test'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+apply from: 'dependencies.gradle'
+apply from: 'testDependencies.gradle'

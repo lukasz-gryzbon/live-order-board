@@ -80,7 +80,7 @@ public class OrderRepositoryTest extends OrderBasedTest {
         assertThat(storedOrders, containsInAnyOrder(order1, order2, order3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = IllegalStateException.class)
     public void shouldNotOverwriteExistingOrderWithSameId() {
         // GIVEN
         final Order order1 = new Order("orderId", randomAlphanumeric(10), nextDouble(), nextInt(), randomOrderType());
@@ -95,7 +95,7 @@ public class OrderRepositoryTest extends OrderBasedTest {
     public void shouldThrowExceptionWithMeaningfulMessageWhenAttemptingToOverwriteExistingOrderWithSameId() {
         // GIVEN
         exception.expectMessage(EXPECTED_EXCEPTION_MESSAGE);
-        exception.expect(IllegalArgumentException.class);
+        exception.expect(IllegalStateException.class);
         final Order order1 = new Order("orderId", randomAlphanumeric(10), nextDouble(), nextInt(), randomOrderType());
         final Order order2 = new Order("orderId", randomAlphanumeric(10), nextDouble(), nextInt(), randomOrderType());
         underTest.save(order1);

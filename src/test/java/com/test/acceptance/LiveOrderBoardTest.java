@@ -118,7 +118,7 @@ public class LiveOrderBoardTest {
         assertOrderSummary(orderSummaries.get(0), 1.2, 310);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = IllegalStateException.class)
     public void shouldNotBeAbleToRegisterOrderWithAnExistingId() {
         // GIVEN
         orderService.registerOrder(newOrder("order1", "user1", 3.5, 306, BUY));

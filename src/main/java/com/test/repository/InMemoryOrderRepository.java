@@ -17,7 +17,7 @@ public class InMemoryOrderRepository implements OrderRepository {
     @Override
     public void save(final Order order) {
         validate(order);
-        orders.put(order.getId(), order);
+        orders.putIfAbsent(order.getId(), order);
     }
 
     @Override

@@ -11,26 +11,26 @@ import java.util.Map;
 
 public class OrderService {
 
-    private final OrderRepository memoryOrderRepository;
+    private final OrderRepository orderRepository;
 
     private final OrderSummaryService orderSummaryService;
 
-    public OrderService(final OrderRepository memoryOrderRepository, final OrderSummaryService orderSummaryService) {
-        this.memoryOrderRepository = memoryOrderRepository;
+    public OrderService(final OrderRepository orderRepository, final OrderSummaryService orderSummaryService) {
+        this.orderRepository = orderRepository;
         this.orderSummaryService = orderSummaryService;
     }
 
     public Order registerOrder(final Order order) {
-        memoryOrderRepository.save(order);
+        orderRepository.save(order);
         return order;
     }
 
     public Order cancelOrder(final Order order) {
-        memoryOrderRepository.remove(order);
+        orderRepository.remove(order);
         return order;
     }
 
     public Map<OrderType, List<OrderSummary>> getSummaryOfOrders() {
-        return orderSummaryService.summarise(memoryOrderRepository.find());
+        return orderSummaryService.summarise(orderRepository.find());
     }
 }

@@ -96,9 +96,9 @@ public class LiveOrderBoardTest {
     @Test
     public void shouldGenerateSortedBuyAndSellOrderDataAfterRemovalOperations() {
         // GIVEN
-        final Order order1 = new Order("order1", "user1", 3.5, 306, BUY);
-        final Order order2 = new Order("order2", "user2", 1.2, 310, BUY);
-        final Order order3 = new Order("order3", "user3", 1.5, 307, SELL);
+        final Order order1 = newOrder("order1", "user1", 3.5, 306, BUY);
+        final Order order2 = newOrder("order2", "user2", 1.2, 310, BUY);
+        final Order order3 = newOrder("order3", "user3", 1.5, 307, SELL);
 
         orderService.registerOrder(order1);
         orderService.registerOrder(order2);
